@@ -6,7 +6,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@abner/tab": "file:../tab"
+    "@abner/tab": "file:./libs/tab-1.0.2.har"
   }
 }
 

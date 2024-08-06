@@ -80,6 +80,14 @@ struct Index {
           //点击
           router.pushUrl({ url: "pages/TabLayoutPage7" })
         })
+
+      Text("可滑动导航")
+        .fontColor(Color.Red)
+        .textStyle()
+        .onClick(() => {
+          //点击
+          router.pushUrl({ url: "pages/SlidePage" })
+        })
     }
     .width('100%')
     .height("100%")

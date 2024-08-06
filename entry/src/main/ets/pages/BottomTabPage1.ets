@@ -25,17 +25,23 @@ struct BottomTabPage1 {
       ActionBar({ title: "底部导航案例一" })
 
       BottomTabLayout({
-        itemPage: this.itemPage,//tab对应的页面
-        tabSelectedColor: "#D81E06",//文字未选择颜色
-        tabNormalColor: Color.Black,//文字未选择颜色
-        tabLabelMarginTop: 10,//文字距离图片的高度
-        tabScrollable: true,//是否可以滑动
+        itemPage: this.itemPage, //tab对应的页面
+        tabSelectedColor: "#D81E06", //文字选择颜色
+        tabNormalColor: Color.Black, //文字未选择颜色
+        tabLabelMarginTop: 10, //文字距离图片的高度
+        tabScrollable: true, //是否可以滑动
         tabMarginBottom: 30, //距离底部的距离，一般可以获取底部导航栏的高度，然后进行设置
         onChangePage: (position) => {
           //页面切换
+          console.log("===========页面切换:" + position)
         },
         onTabBarClick: (position) => {
           //tab点击
+          console.log("===========单击:" + position)
+        },
+        onDoubleClick: (position) => {
+          //双击
+          console.log("===========双击:" + position)
         },
         tabBar: [
           new TabBar("首页", $r("app.media.ic_home_select"), $r("app.media.ic_home_unselect")),

@@ -1,6 +1,6 @@
 # HarmonyOsTab
 
-HarmonyOsTab是一个封装了主页底部按钮和通用的指示器tab，优化了系统tab，支持居左展示，支持右侧添加按钮。
+HarmonyOsTab是一个封装了主页底部按钮和通用的指示器tab，优化了系统tab，支持居左展示，支持指示器滑动，支持右侧添加按钮。
 
 <p align="center">
 <img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab_243_01.jpeg" width="120px" />
@@ -11,11 +11,11 @@ HarmonyOsTab是一个封装了主页底部按钮和通用的指示器tab，优�
 
 ## 开发环境
 
-DevEco Studio NEXT Developer Preview1,Build Version: 4.1.3.500
+DevEco Studio NEXT Developer Preview1,Build Version: 5.0.3.403
 
 Api版本：**11**
 
-hvigorVersion：4.0.2
+modelVersion：5.0.0
 
 ## 快速使用
 
@@ -32,14 +32,14 @@ ohpm install @abner/tab
 方式二：在工程的oh-package.json5中设置三方包依赖，配置示例如下：
 
 ```
-"dependencies": { "@abner/tab": "^1.0.0"}
+"dependencies": { "@abner/tab": "^1.0.2"}
 ```
 
 <p align="center"><img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab/tab_243_001.jpg" width="300"></p>
 
 ### 2、本地静态共享包har包使用
 
-<p>首先，下载har包，<a href="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab/tab-1.0.0.har">点击下载</a></p>
+<p>首先，下载har包，<a href="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab/tab-1.0.2.har">点击下载</a></p>
 <p>下载之后，把har包复制项目中，目录自己创建，如下，我创建了一个libs目录，复制进去</p>
 <p><img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab/tab_243_002.jpg"></p>
 <p>引入之后，进行同步项目，点击Sync Now即可，当然了你也可以，将鼠标放置在报错处会出现提示，在提示框中点击Run 'ohpm install'。</p>
@@ -350,72 +350,50 @@ struct TabLayoutPage4 {
   build() {
     Column() {
       ActionBar({ title: "封装导航【居左】" })
-      TabLayout({
-        tabBar: ["条目一", "条目二"],
-        isTabAlignLeft: true,
+      SlideTab({
+        tabBar: ["条目一", "条目二", "条目三", "条目四", "条目五", "条目六", "条目七"],
         itemPage: this.itemPage,
-        tabAttribute: (tab) => {
-          //设置属性
-
-        },
+        barMode: BarMode.Scrollable,
         onChangePage: (position) => {
-          //页面改变
-          console.log("页面改变:" + position)
+          console.log("==============切换：" + position)
+        },
+        onTabBarClick: (position) => {
+          console.log("==============点击：" + position)
         }
       })
     }
   }
 }
 ```
-
 #### 相关属性
 同上。
 
-### 5、普通指示器导航【右边添加按钮】
-
-<p align="center">
-<img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab/tab_243_005.jpg" width="200px" />
-</p>
+### 5、普通指示器导航【可滑动】
 
 ```typescript
 @Entry
 @Component
-struct TabLayoutPage6 {
+struct SlidePage {
   @Builder
-  itemPage(index: number, item: string) {
-    Text(item)
-  }
-
-  /**
-   * AUTHOR:AbnerMing
-   * INTRODUCE:右侧的按钮，可以是任何的视图
-   * */
-  @Builder
-  itemMenu() {
-    Text("测试")
-      .backgroundColor(Color.Pink)
+  itemPage(index: number, item: Object) {
+    Text(item.toString())
       .width("100%")
       .height("100%")
+      .backgroundColor(Color.Pink)
       .textAlign(TextAlign.Center)
   }
 
   build() {
     Column() {
-      ActionBar({ title: "封装导航【居左滑动】" })
-      TabLayout({
-        tabBar: ["条目一", "条目二", "条目三", "条目四", "条目五", "条目六"],
-        isTabAlignLeft: true,
+      SlideTab({
+        tabBar: ["条目一", "条目二", "条目三", "条目四", "条目五", "条目六", "条目七"],
         itemPage: this.itemPage,
-        isShowTabMenu: true, //展示右侧的按钮
-        tabMenu: this.itemMenu, //按钮
-        tabMenuWidth: 100, //按钮宽度
-        tabAttribute: (tab) => {
-          //设置属性
-
-        },
+        barMode: BarMode.Scrollable,
         onChangePage: (position) => {
-          //页面改变
-          console.log("页面改变:" + position)
+          console.log("==============切换：" + position)
+        },
+        onTabBarClick: (position) => {
+          console.log("==============点击：" + position)
         }
       })
     }

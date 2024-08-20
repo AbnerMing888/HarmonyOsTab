@@ -32,14 +32,14 @@ ohpm install @abner/tab
 方式二：在工程的oh-package.json5中设置三方包依赖，配置示例如下：
 
 ```
-"dependencies": { "@abner/tab": "^1.0.2"}
+"dependencies": { "@abner/tab": "^1.0.3"}
 ```
 
 <p align="center"><img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab/tab_243_001.jpg" width="300"></p>
 
 ### 2、本地静态共享包har包使用
 
-<p>首先，下载har包，<a href="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab/tab-1.0.2.har">点击下载</a></p>
+<p>首先，下载har包，<a href="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab/tab-1.0.3.har">点击下载</a></p>
 <p>下载之后，把har包复制项目中，目录自己创建，如下，我创建了一个libs目录，复制进去</p>
 <p><img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab/tab_243_002.jpg"></p>
 <p>引入之后，进行同步项目，点击Sync Now即可，当然了你也可以，将鼠标放置在报错处会出现提示，在提示框中点击Run 'ohpm install'。</p>
@@ -109,27 +109,28 @@ build() {
 
 #### 相关属性
 
-| 属性                 | 类型                          | 概述             |
-|--------------------|-----------------------------|----------------|
-| itemPage           | BuilderParam                | tab对应得页面       |
-| tabSelectedColor   | ResourceColor               | tab选中颜色        |
-| tabNormalColor     | ResourceColor               | tab未选中颜色       |
-| tabSelectedBgColor | ResourceColor               | 选中背景颜色         |
-| tabNormalBgColor   | ResourceColor               | 未选中背景颜色        |
-| tabIconWidth       | number                      | 图片icon的宽度，默认20 |
-| tabIconHeight      | number                      | 图片icon的高度，默认20 |
-| tabSize            | number                      | tab文字大小        |
-| tabWeight          | number /FontWeight / string | 文字权重           |
-| tabLabelMarginTop  | number                      | 标签距离图片的高度      |
-| tabBar             | Array<TabBar>               | tab数据源         |
-| tabWidth           | Length                      | tab指示器的宽度      |
-| tabHeight          | number                      | tab指示器的高度，默认56 |
-| currentIndex       | number                      | 当前索引，默认是第一个    |
-| onChangePage       | 回调方法                        | 页面切换监听         |
-| onTabBarClick      | tab点击回调                     | tab点击监听        |
-| tabScrollable      | boolean                     | 是否可滑动，默认不可以滑动  |
-| tabMarginBottom    | number                      | tab距离底部的距离     |
-
+| 属性                  | 类型                          | 概述                 |
+|---------------------|-----------------------------|--------------------|
+| itemPage            | BuilderParam                | tab对应得页面           |
+| tabSelectedColor    | ResourceColor               | tab选中颜色            |
+| tabNormalColor      | ResourceColor               | tab未选中颜色           |
+| tabSelectedBgColor  | ResourceColor               | 选中背景颜色             |
+| tabNormalBgColor    | ResourceColor               | 未选中背景颜色            |
+| tabIconWidth        | number                      | 图片icon的宽度，默认20     |
+| tabIconHeight       | number                      | 图片icon的高度，默认20     |
+| tabSize             | number                      | tab文字大小            |
+| tabWeight           | number /FontWeight / string | 文字权重               |
+| tabLabelMarginTop   | number                      | 标签距离图片的高度          |
+| tabBar              | Array<TabBar>               | tab数据源             |
+| tabWidth            | Length                      | tab指示器的宽度          |
+| tabHeight           | number                      | tab指示器的高度，默认56     |
+| currentIndex        | number                      | 当前索引，默认是第一个        |
+| onChangePage        | 回调方法                        | 页面切换监听             |
+| onTabBarClick       | tab点击回调                     | tab点击监听            |
+| tabScrollable       | boolean                     | 是否可滑动，默认不可以滑动      |
+| tabMarginBottom     | number                      | tab距离底部的距离         |
+| isTabClickIntercept | boolean                     | tab点击拦截，默认false不拦截 |
+| onDoubleClick       | 回调方法                        | 双击                 |
 
 ### 2、底部导航案例2，自定义Tab视图
 
@@ -224,7 +225,8 @@ build() {
 | tabScrollable      | boolean                     | 是否可滑动，默认不可以滑动    |
 | tabMarginBottom    | number                      | tab距离底部的距离       |
 | isMarginBottom     | boolean                     | 默认开启，tab距离底部的距离  |
-
+| isTabClickIntercept | boolean                     | tab点击拦截，默认false不拦截 |
+| onDoubleClick       | 回调方法                        | 双击                 |
 
 ### 3、普通指示器导航
 

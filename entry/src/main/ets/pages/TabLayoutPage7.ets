@@ -34,9 +34,15 @@ struct TabLayoutPage7 {
   build() {
     Column() {
       BaseTabLayout({
-        tabBar: ["条目一", "条目二"],
+        tabBar: ["条目一", "条目二", "条目三", "条目四", "条目五", "条目六"],
         itemPage: this.itemPage,
-        itemTab: this.itemTab
+        itemTab: this.itemTab,
+        onTabBarClick: (position: number) => {
+          console.log("====点击了：" + position)
+        },
+        onChangePage: (position: number) => {
+          console.log("====页面切换了：" + position)
+        }
       })
     }
   }

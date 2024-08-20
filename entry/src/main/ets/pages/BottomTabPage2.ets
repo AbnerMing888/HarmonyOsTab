@@ -61,7 +61,11 @@ struct BottomTabPage2 {
         onChangePage: (position) => {
           //页面切换
           console.log("====页面切换了" + position)
-        }
+        },
+        onDoubleClick: (position) => {
+          //双击
+          console.log("===========双击:" + position)
+        },
       })
     }
   }

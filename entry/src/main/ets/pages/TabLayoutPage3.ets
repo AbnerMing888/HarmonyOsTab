@@ -22,7 +22,6 @@ struct TabLayoutPage3 {
         itemPage: this.itemPage,
         tabAttribute: (tab) => {
           //设置属性
-
         },
         onChangePage: (position) => {
           //页面改变

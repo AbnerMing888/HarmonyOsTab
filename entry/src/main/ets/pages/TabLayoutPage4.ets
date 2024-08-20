@@ -12,6 +12,10 @@ struct TabLayoutPage4 {
   @Builder
   itemPage(index: number, item: string) {
     Text(item)
+      .height("100%")
+      .width("100%")
+      .textAlign(TextAlign.Center)
+      .backgroundColor(Color.Pink)
   }
 
   build() {
@@ -23,11 +27,13 @@ struct TabLayoutPage4 {
         itemPage: this.itemPage,
         tabAttribute: (tab) => {
           //设置属性
-
+        },
+        onTabBarClick: (position) => {
+          console.log("==点击改变:" + position)
         },
         onChangePage: (position) => {
           //页面改变
-          console.log("页面改变:" + position)
+          console.log("==页面改变:" + position)
         }
       })
     }

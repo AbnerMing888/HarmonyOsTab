@@ -46,6 +46,7 @@ struct BottomTabPage3 {
         tabMarginBottom: 30, //距离底部的距离，一般可以获取底部导航栏的高度，然后进行设置
         onTabBarClick: (position) => {
           //点击tab
+          console.log("==========点击了："+position)
         },
         onChangePage: (position) => {
           this.currentIndex = position

@@ -12,6 +12,10 @@ struct TabLayoutPage5 {
   @Builder
   itemPage(index: number, item: string) {
     Text(item)
+      .height("100%")
+      .width("100%")
+      .textAlign(TextAlign.Center)
+      .backgroundColor(Color.Pink)
   }
 
   build() {

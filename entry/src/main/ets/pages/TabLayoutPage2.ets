@@ -27,11 +27,11 @@ struct TabLayoutPage2 {
         },
         onChangePage: (position) => {
           //页面改变
-          console.log("页面改变:" + position)
+          console.log("===页面改变:" + position)
         },
         onTabBarClick: (position) => {
           //点击改变
-          console.log("点击改变:" + position)
+          console.log("===点击改变:" + position)
         }
       })
     }

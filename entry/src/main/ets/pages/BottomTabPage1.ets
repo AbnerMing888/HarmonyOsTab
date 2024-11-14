@@ -29,8 +29,8 @@ struct BottomTabPage1 {
         tabSelectedColor: "#D81E06", //文字选择颜色
         tabNormalColor: Color.Black, //文字未选择颜色
         tabLabelMarginTop: 10, //文字距离图片的高度
-        tabScrollable: true, //是否可以滑动
-        tabMarginBottom: 30, //距离底部的距离，一般可以获取底部导航栏的高度，然后进行设置
+        tabScrollable: false, //是否可以滑动
+        tabMarginBottom: 40, //距离底部的距离，一般可以获取底部导航栏的高度，然后进行设置
         onChangePage: (position) => {
           //页面切换
           console.log("===========页面切换:" + position)
@@ -48,8 +48,9 @@ struct BottomTabPage1 {
           new TabBar("网络", $r("app.media.ic_net_select"), $r("app.media.ic_net_unselect")),
           new TabBar("列表", $r("app.media.ic_list_select"), $r("app.media.ic_list_unselect")),
           new TabBar("组件", $r("app.media.ic_view_select"), $r("app.media.ic_view_unselect"))
-        ]
+        ],
       })
     }.height("100%")
+
   }
 }

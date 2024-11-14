@@ -4,11 +4,11 @@ import { ActionBar } from './ActionBar'
 /**
  * AUTHOR:AbnerMing
  * DATE:2024/3/5
- * INTRODUCE:底部导航案例二，使用BaseBottomTabLayout，可以自定义Tab视图
+ * INTRODUCE:底部导航案例中间图片
  * */
 @Entry
 @Component
-struct BottomTabPage2 {
+struct BottomTabPage4 {
   private currentIndex = 0 //默认是第一个
 
   /**
@@ -30,27 +30,40 @@ struct BottomTabPage2 {
    * */
   @Builder
   itemTab(index: number, item: TabBar) {
-    Column() {
-      Image(this.currentIndex == index ? item.selectedIcon
-        : item.normalIcon)
-        .width(30).height(30)
-      Text(item.title)
-        .fontColor(this.currentIndex == index ? "#D81E06" : "#000000")
-        .fontSize(14)
-        .margin({ top: 5 })
-    }.width("100%")
+    if (index == 2) {
+      Column() {
+        Image($r("app.media.add"))
+          .width(50).height(50)
+          .margin({ top: -10 })
+      }
+    } else {
+      Column() {
+        Column() {
+          Image(this.currentIndex == index ? item.selectedIcon
+            : item.normalIcon)
+            .width(30).height(30)
+          Text(item.title)
+            .fontColor(this.currentIndex == index ? "#D81E06" : "#000000")
+            .fontSize(14)
+            .margin({ top: 5 })
+        }
+      }.width("100%")
+      .justifyContent(FlexAlign.Center)
+    }
   }
-
 
   build() {
     Column() {
-      ActionBar({ title: "底部导航案例二" })
+      ActionBar({ title: "自定义底部导航(中间图片)" })
       BaseBottomTabLayout({
         itemPage: this.itemPage,
         itemTab: this.itemTab,
+        barBackgroundColor: "#e8e8e8",
+        centerImageMarginBottom: 10,
         tabBar: [
           new TabBar("首页", $r("app.media.ic_home_select"), $r("app.media.ic_home_unselect")),
           new TabBar("网络", $r("app.media.ic_net_select"), $r("app.media.ic_net_unselect")),
+          new TabBar("中间图片"),
           new TabBar("列表", $r("app.media.ic_list_select"), $r("app.media.ic_list_unselect")),
           new TabBar("组件", $r("app.media.ic_view_select"), $r("app.media.ic_view_unselect"))
         ],

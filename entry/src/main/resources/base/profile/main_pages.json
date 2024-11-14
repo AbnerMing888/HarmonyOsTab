@@ -4,13 +4,9 @@
     "pages/BottomTabPage1",
     "pages/BottomTabPage2",
     "pages/BottomTabPage3",
-    "pages/TabLayoutPage1",
-    "pages/TabLayoutPage2",
-    "pages/TabLayoutPage3",
-    "pages/TabLayoutPage4",
-    "pages/TabLayoutPage5",
-    "pages/TabLayoutPage6",
-    "pages/TabLayoutPage7",
+    "pages/BottomTabPage4",
+    "pages/TabLayoutPage",
+    "pages/TabLayoutScrollPage",
     "pages/SlidePage"
   ]
 }

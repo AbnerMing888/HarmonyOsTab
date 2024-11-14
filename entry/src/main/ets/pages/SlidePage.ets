@@ -31,6 +31,9 @@ struct SlidePage {
         tabBar: ["条目一", "条目二", "条目三", "条目四", "条目五", "条目六", "条目七"],
         itemPage: this.itemPage,
         barMode: BarMode.Scrollable,
+        tabMenu: this.itemMenu,
+        isShowTabMenu:true,
+        tabMenuWidth:80,
         onChangePage: (position) => {
           console.log("==============切换：" + position)
         },

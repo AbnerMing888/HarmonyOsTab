@@ -506,6 +506,12 @@ TabLayout({
       })
 ```
 
+## 咨询作者
+
+如果您在使用上有问题，解决不了，或者查看精华的鸿蒙技术文章，可扫码进行操作。
+
+<p><img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/abner.jpg" width="150"></p>
+
 ## License
 
 ```

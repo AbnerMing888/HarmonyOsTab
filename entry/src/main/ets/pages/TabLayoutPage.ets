@@ -1,4 +1,4 @@
-import { TabLayout, TabType } from '@abner/tab'
+import { BaseTabLayout, TabLayout, TabType } from '@abner/tab'
 import { ActionBar } from './ActionBar'
 
 /**
@@ -26,6 +26,7 @@ struct TabLayoutPage {
       TabLayout({
         tabBar: ["条目一", "条目二", "条目三", "条目四", "条目五", "条目六"],
         itemPage: this.itemPage,
+        tabScrollable:false,
         tabType: TabType.DEFAULT, //普通的需要设置默认值，指示器不会跟着手势滑动
         onChangePage: (position) => {
           //页面改变

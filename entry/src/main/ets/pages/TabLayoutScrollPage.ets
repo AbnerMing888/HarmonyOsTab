@@ -173,7 +173,7 @@ struct TabLayoutScrollPage {
             },
           })
 
-          //左侧按钮
+          //右侧按钮
           TabLayout({
             tabBar: ["条目一", "条目二", "条目三", "条目四", "条目五", "条目六", "条目七", "条目八"],
             itemPage: this.itemPage,

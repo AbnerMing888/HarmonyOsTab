@@ -1,17 +1,33 @@
 # HarmonyOsTab
-HarmonyOsTab是一个封装了主页底部按钮和通用的指示器tab，优化了系统tab，支持指示器跟随手势滑动，支持自定义指示器，支持右侧添加按钮。
 
 <p align="center">
-<img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab_24_10_01.png" width="120px" />
-<img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab_24_10_02.png" width="120px" />
-<img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab_24_10_03.png" width="120px" />
+<img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/abner.jpg" width="100px" /><br/>
+<span style="font-size:12px;color:red;">扫码关注，千帆起航，共筑鸿蒙！</span>
 </p>
+
+HarmonyOsTab是一个封装了主页底部按钮和通用的指示器tab，优化了系统tab，支持指示器跟随手势滑动,支持自定义指示器，支持右侧添加按钮。
+
+<p align="center">
+<img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab_20250908001.png" width="120px" />
+<img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab_20250908002.png" width="120px" />
+<img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab_20250908003.png" width="120px" />
+<img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab_20250908004.png" width="120px" />
+</p>
+
+## 目前支持功能
+- 0、支持自定义底部tab形式。
+- 1、支持底部tab图文形式。
+- 2、支持底部中间图片形式。
+- 3、支持底部圆角浮动形式。
+- 4、支持指示器跟随手势滑动。
+- 5、支持自定义指示器。
+- 6、支持右侧添加按钮。
 
 ## 开发环境
 
-DevEco Studio NEXT Developer Preview1,Build Version: 5.0.3.900
+DevEco Studio NEXT Developer Preview1,Build Version: 5.1.1.823
 
-Api版本：**12**
+Api版本：**>=12**
 
 modelVersion：5.0.0
 
@@ -28,7 +44,7 @@ ohpm install @abner/tab
 方式二：在工程的oh-package.json5中设置三方包依赖，配置示例如下：
 
 ```
-"dependencies": { "@abner/tab": "^1.0.5"}
+"dependencies": { "@abner/tab": "^1.0.8"}
 ```
 
 <p align="center"><img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab/tab_243_001.jpg" width="300"></p>
@@ -445,6 +461,7 @@ TabLayout({
           })
 ```
 
+
 #### 相关属性
 
 
@@ -466,6 +483,7 @@ TabLayout({
 | tabMenu             | 回调方法BuilderParam                               | 右边展示的按钮视图         |
 | tabMenuWidth        | number                                         | tab右侧按钮的宽度        |
 | tabMenuMarginRight  | number                                         | tab按钮距离右侧的距离      |
+
 
 ### 5、普通指示器导航【不可滑动】
 
@@ -506,11 +524,74 @@ TabLayout({
       })
 ```
 
-## 咨询作者
+### 6、底部导航【圆角形式】
 
-如果您在使用上有问题，解决不了，或者查看精华的鸿蒙技术文章，可扫码进行操作。
+```typescript
 
-<p><img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/abner.jpg" width="150"></p>
+@Entry
+@Component
+struct BottomTabPage5 {
+  tabsController: TabsController = new TabsController()
+  @State tabBar: Array<TabBar> = [
+    new TabBar("首页", $r("app.media.ic_home_select"), $r("app.media.ic_home_unselect")),
+    new TabBar("网络", $r("app.media.ic_net_select"), $r("app.media.ic_net_unselect")),
+    new TabBar("列表", $r("app.media.ic_list_select"), $r("app.media.ic_list_unselect")),
+    new TabBar("组件", $r("app.media.ic_view_select"), $r("app.media.ic_view_unselect"))
+  ]
+
+  /**
+   * AUTHOR:AbnerMing
+   * INTRODUCE:tab对应的页面
+   * @param index 索引
+   * @param item TabBar对象，非必须
+   * */
+  @Builder
+  itemPage(index: number, item: TabBar) {
+    Text(item.title)
+      .width("100%")
+      .height("100%")
+      .textAlign(TextAlign.Center)
+      .backgroundColor("#E8E8E8")
+  }
+
+  build() {
+    Column() {
+      ActionBar({ title: "底部导航案例一" })
+
+      BottomTabLayout({
+        tabsController: this.tabsController,
+        itemPage: this.itemPage, //tab对应的页面
+        tabSelectedColor: "#D81E06", //文字选择颜色
+        tabNormalColor: Color.Black, //文字未选择颜色
+        tabLabelMarginTop: 10, //文字距离图片的高度
+        tabScrollable: false, //是否可以滑动
+        bottomTabType: BottomTabType.ROUNDED, //底部圆角导航
+        bottomTabMargin: { bottom: 40, left: "10%" },
+        tabWidth: "80%",
+        bottomTabBorderOptions: { radius: 30 },
+        barBackgroundColor: Color.White,
+        onChangePage: (position) => {
+          //页面切换
+          console.log("===========页面切换:" + position)
+        },
+        onTabBarClick: (position) => {
+          //tab点击
+          console.log("===========单击:" + position)
+        },
+        onDoubleClick: (position) => {
+          //双击
+          console.log("===========双击:" + position)
+        },
+        onTabAppear: () => {
+          this.tabsController.preloadItems([1, 2])
+        },
+        tabBar: this.tabBar
+      })
+    }.height("100%")
+
+  }
+}
+```
 
 ## License
 

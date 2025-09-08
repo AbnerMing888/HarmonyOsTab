@@ -17,7 +17,19 @@
       }
     ],
     "signingConfigs": [
-
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\GW00261583\\.ohos\\config\\default_HarmonyOsTab_YtgZMVhepWuaauDdNNf1XfxYpQqQPbqm9r1q2VGMM90=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B75ECD06BA8FE8AE060623E77AA3DF4B724FFCB0E03FC9E4E6A785BC3F60B7DEA20BBE532E1B413",
+          "profile": "C:\\Users\\GW00261583\\.ohos\\config\\default_HarmonyOsTab_YtgZMVhepWuaauDdNNf1XfxYpQqQPbqm9r1q2VGMM90=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\GW00261583\\.ohos\\config\\default_HarmonyOsTab_YtgZMVhepWuaauDdNNf1XfxYpQqQPbqm9r1q2VGMM90=.p12",
+          "storePassword": "0000001B5251443D26A8C8D69AA086F2E7387D88C15D029C13D0EA162E7822618054E28AEE5A0ED22D1D51"
+        }
+      }
     ]
   },
   "modules": [
@@ -32,6 +44,10 @@
           ]
         }
       ]
+    },
+    {
+      "name": "tab",
+      "srcPath": "./tab"
     }
   ]
 }

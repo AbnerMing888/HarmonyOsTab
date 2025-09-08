@@ -24,9 +24,10 @@ export default class EntryAbility extends UIAbility {
         statusBarColor: '#ff0000',
         navigationBarColor: '#ff0000',
         // 以下两个属性从API Version 8开始支持
-        statusBarContentColor: '#ffffff',
-        navigationBarContentColor: '#ffffff'
+        statusBarContentColor: '#ff0000',
+        navigationBarContentColor: '#ff0000'
       };
+
       windowClass.setWindowSystemBarProperties(sysBarProps, (err: BusinessError) => {
         let errCode: number = err.code;
         if (errCode) {

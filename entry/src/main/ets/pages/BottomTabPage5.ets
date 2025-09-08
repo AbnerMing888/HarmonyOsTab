@@ -1,15 +1,15 @@
-import { BottomTabLayout, TabBar } from '@abner/tab'
+import { BottomTabLayout, BottomTabType, TabBar } from '@abner/tab'
 import { ActionBar } from './ActionBar'
 
 /**
  * AUTHOR:AbnerMing
- * DATE:2024/3/5
- * INTRODUCE:底部导航案例一，使用封装的BottomTabLayout，只需要page视图即可
+ * DATE:2024/9/8
+ * INTRODUCE:底部圆角导航
  * */
 
 @Entry
 @Component
-struct BottomTabPage1 {
+struct BottomTabPage5 {
   tabsController: TabsController = new TabsController()
   @State tabBar: Array<TabBar> = [
     new TabBar("首页", $r("app.media.ic_home_select"), $r("app.media.ic_home_unselect")),
@@ -27,11 +27,15 @@ struct BottomTabPage1 {
   @Builder
   itemPage(index: number, item: TabBar) {
     Text(item.title)
+      .width("100%")
+      .height("100%")
+      .textAlign(TextAlign.Center)
+      .backgroundColor("#E8E8E8")
   }
 
   build() {
     Column() {
-      ActionBar({ title: "底部导航案例一" })
+      ActionBar({ title: "底部导航案例五" })
 
       BottomTabLayout({
         tabsController: this.tabsController,
@@ -40,7 +44,11 @@ struct BottomTabPage1 {
         tabNormalColor: Color.Black, //文字未选择颜色
         tabLabelMarginTop: 10, //文字距离图片的高度
         tabScrollable: false, //是否可以滑动
-        tabMarginBottom: 40, //距离底部的距离，一般可以获取底部导航栏的高度，然后进行设置
+        bottomTabType: BottomTabType.ROUNDED, //底部圆角导航
+        bottomTabMargin: { bottom: 40, left: "5%" },
+        tabWidth: "90%",
+        bottomTabBorderOptions: { radius: 30 },
+        barBackgroundColor: Color.White,
         onChangePage: (position) => {
           //页面切换
           console.log("===========页面切换:" + position)

@@ -4,12 +4,12 @@ import router from '@ohos.router';
 @Component
 struct Index {
   private items: string[] = [
-    "封装底部导航", "自定义底部导航", "自定义底部导航纯文字", "底部导航(中间图片)",
+    "封装底部导航", "自定义底部导航", "自定义底部导航纯文字", "底部导航(中间图片)", "底部圆角导航",
     "可滑动导航", "普通导航"
   ]
   private routers: string[] = [
     "pages/BottomTabPage1", "pages/BottomTabPage2",
-    "pages/BottomTabPage3", "pages/BottomTabPage4",
+    "pages/BottomTabPage3", "pages/BottomTabPage4","pages/BottomTabPage5",
     "pages/TabLayoutScrollPage", "pages/TabLayoutPage"
   ]
 

@@ -34,7 +34,7 @@ struct BottomTabPage4 {
       Column() {
         Image($r("app.media.add"))
           .width(50).height(50)
-          .margin({ top: -10 })
+          .margin({ top: -30 })
       }
     } else {
       Column() {
@@ -59,7 +59,8 @@ struct BottomTabPage4 {
         itemPage: this.itemPage,
         itemTab: this.itemTab,
         barBackgroundColor: "#e8e8e8",
-        centerImageMarginBottom: 10,
+        navBarBackgroundColor: "#e8e8e8",
+        centerImageMarginBottom: 20,
         tabBar: [
           new TabBar("首页", $r("app.media.ic_home_select"), $r("app.media.ic_home_unselect")),
           new TabBar("网络", $r("app.media.ic_net_select"), $r("app.media.ic_net_unselect")),
@@ -67,7 +68,7 @@ struct BottomTabPage4 {
           new TabBar("列表", $r("app.media.ic_list_select"), $r("app.media.ic_list_unselect")),
           new TabBar("组件", $r("app.media.ic_view_select"), $r("app.media.ic_view_unselect"))
         ],
-        tabMarginBottom: 30, //距离底部的距离，一般可以获取底部导航栏的高度，然后进行设置
+        tabMarginBottom: 40, //距离底部的距离，一般可以获取底部导航栏的高度，然后进行设置
         onTabBarClick: (position) => {
           //tab点击
           console.log("====点击了Tab" + position)

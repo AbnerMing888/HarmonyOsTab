@@ -5,7 +5,9 @@
 <span style="font-size:12px;color:red;">扫码关注，千帆起航，共筑鸿蒙！</span>
 </p>
 
-HarmonyOsTab是一个封装了主页底部按钮和通用的指示器tab，优化了系统tab，支持指示器跟随手势滑动,支持自定义指示器，支持右侧添加按钮。
+HarmonyOsTab是一个便捷的tabs组件，封装了底部tab和普通的指示器tab，支持多种效果展示，支持跟随手势滑动，几行代码便可轻松搞定！
+
+对应的v2装饰器版本地址：[tab_v2](https://ohpm.openharmony.cn/#/cn/detail/@abner%2Ftab_v2)
 
 <p align="center">
 <img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab_20250908001.png" width="120px" />
@@ -22,6 +24,7 @@ HarmonyOsTab是一个封装了主页底部按钮和通用的指示器tab，优�
 - 4、支持指示器跟随手势滑动。
 - 5、支持自定义指示器。
 - 6、支持右侧添加按钮。
+- 7、支持指示器图片形式。
 
 ## 开发环境
 
@@ -44,7 +47,7 @@ ohpm install @abner/tab
 方式二：在工程的oh-package.json5中设置三方包依赖，配置示例如下：
 
 ```
-"dependencies": { "@abner/tab": "^1.0.8"}
+"dependencies": { "@abner/tab": "^1.0.9"}
 ```
 
 <p align="center"><img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab/tab_243_001.jpg" width="300"></p>
@@ -122,28 +125,32 @@ struct BottomTabPage1 {
 
 #### 相关属性
 
-| 属性                  | 类型                          | 概述                 |
-|---------------------|-----------------------------|--------------------|
-| itemPage            | BuilderParam                | tab对应得页面           |
-| tabSelectedColor    | ResourceColor               | tab选中颜色            |
-| tabNormalColor      | ResourceColor               | tab未选中颜色           |
-| tabSelectedBgColor  | ResourceColor               | 选中背景颜色             |
-| tabNormalBgColor    | ResourceColor               | 未选中背景颜色            |
-| tabIconWidth        | number                      | 图片icon的宽度，默认20     |
-| tabIconHeight       | number                      | 图片icon的高度，默认20     |
-| tabSize             | number                      | tab文字大小            |
-| tabWeight           | number /FontWeight / string | 文字权重               |
-| tabLabelMarginTop   | number                      | 标签距离图片的高度          |
-| tabBar              | Array<TabBar>               | tab数据源             |
-| tabWidth            | Length                      | tab指示器的宽度          |
-| tabHeight           | number                      | tab指示器的高度，默认56     |
-| currentIndex        | number                      | 当前索引，默认是第一个        |
-| onChangePage        | 回调方法                        | 页面切换监听             |
-| onTabBarClick       | tab点击回调                     | tab点击监听            |
-| tabScrollable       | boolean                     | 是否可滑动，默认不可以滑动      |
-| tabMarginBottom     | number                      | tab距离底部的距离         |
-| isTabClickIntercept | boolean                     | tab点击拦截，默认false不拦截 |
-| onDoubleClick       | 回调方法                        | 双击                 |
+| 属性                         | 类型                          | 概述                 |
+|----------------------------|-----------------------------|--------------------|
+| itemPage                   | BuilderParam                | tab对应得页面           |
+| tabSelectedColor           | ResourceColor               | tab选中颜色            |
+| tabNormalColor             | ResourceColor               | tab未选中颜色           |
+| tabSelectedBgColor         | ResourceColor               | 选中背景颜色             |
+| tabNormalBgColor           | ResourceColor               | 未选中背景颜色            |
+| tabIconWidth               | number                      | 图片icon的宽度，默认20     |
+| tabIconHeight              | number                      | 图片icon的高度，默认20     |
+| tabSize                    | number                      | tab文字大小            |
+| tabWeight                  | number /FontWeight / string | 文字权重               |
+| tabLabelMarginTop          | number                      | 标签距离图片的高度          |
+| tabBar                     | Array<TabBar>               | tab数据源             |
+| tabWidth                   | Length                      | tab指示器的宽度          |
+| tabHeight                  | number                      | tab指示器的高度，默认56     |
+| currentIndex               | number                      | 当前索引，默认是第一个        |
+| onChangePage               | 回调方法                        | 页面切换监听             |
+| onTabBarClick              | tab点击回调                     | tab点击监听            |
+| tabScrollable              | boolean                     | 是否可滑动，默认不可以滑动      |
+| tabMarginBottom            | number                      | tab距离底部的距离         |
+| isTabClickIntercept        | boolean                     | tab点击拦截，默认false不拦截 |
+| onDoubleClick              | 回调方法                        | 双击                 |
+| bottomTabType              | BottomTabType               | 设置底部导航模式，默认为普通模式   |
+| bottomTabBorderOptions     | BorderOptions               | 设置底部导航边框样式         |
+| navBarBackgroundColor      | ResourceColor               | 底部导航栏背景颜色          |
+| tabPositionInterceptArray  | Array                       | 按照索引拦截，具体传递对应索引即可  |
 
 ### 2、底部导航案例2，自定义Tab视图
 
@@ -227,29 +234,33 @@ struct BottomTabPage2 {
 #### 相关属性
 
 
-| 属性                 | 类型                          | 概述               |
-|--------------------|-----------------------------|------------------|
-| itemPage           | BuilderParam                | tab对应得页面         |
-| tabSelectedColor   | ResourceColor               | tab选中颜色          |
-| tabNormalColor     | ResourceColor               | tab未选中颜色         |
-| tabSelectedBgColor | ResourceColor               | 选中背景颜色           |
-| tabNormalBgColor   | ResourceColor               | 未选中背景颜色          |
-| tabIconWidth       | number                      | 图片icon的宽度，默认20   |
-| tabIconHeight      | number                      | 图片icon的高度，默认20   |
-| tabSize            | number                      | tab文字大小          |
-| tabWeight          | number /FontWeight / string | 文字权重             |
-| tabLabelMarginTop  | number                      | 标签距离图片的高度        |
-| tabBar             | Array<TabBar>               | tab数据源           |
-| tabWidth           | Length                      | tab指示器的宽度        |
-| tabHeight          | number                      | tab指示器的高度，默认56   |
-| currentIndex       | number                      | 当前索引，默认是第一个      |
-| onChangePage       | 回调方法                        | 页面切换监听           |
-| onTabBarClick      | tab点击回调                     | tab点击监听          |
-| tabScrollable      | boolean                     | 是否可滑动，默认不可以滑动    |
-| tabMarginBottom    | number                      | tab距离底部的距离       |
-| isMarginBottom     | boolean                     | 默认开启，tab距离底部的距离  |
-| isTabClickIntercept | boolean                     | tab点击拦截，默认false不拦截 |
-| onDoubleClick       | 回调方法                        | 双击                 |
+| 属性                         | 类型                          | 概述               |
+|----------------------------|-----------------------------|------------------|
+| itemPage                   | BuilderParam                | tab对应得页面         |
+| tabSelectedColor           | ResourceColor               | tab选中颜色          |
+| tabNormalColor             | ResourceColor               | tab未选中颜色         |
+| tabSelectedBgColor         | ResourceColor               | 选中背景颜色           |
+| tabNormalBgColor           | ResourceColor               | 未选中背景颜色          |
+| tabIconWidth               | number                      | 图片icon的宽度，默认20   |
+| tabIconHeight              | number                      | 图片icon的高度，默认20   |
+| tabSize                    | number                      | tab文字大小          |
+| tabWeight                  | number /FontWeight / string | 文字权重             |
+| tabLabelMarginTop          | number                      | 标签距离图片的高度        |
+| tabBar                     | Array<TabBar>               | tab数据源           |
+| tabWidth                   | Length                      | tab指示器的宽度        |
+| tabHeight                  | number                      | tab指示器的高度，默认56   |
+| currentIndex               | number                      | 当前索引，默认是第一个      |
+| onChangePage               | 回调方法                        | 页面切换监听           |
+| onTabBarClick              | tab点击回调                     | tab点击监听          |
+| tabScrollable              | boolean                     | 是否可滑动，默认不可以滑动    |
+| tabMarginBottom            | number                      | tab距离底部的距离       |
+| isMarginBottom             | boolean                     | 默认开启，tab距离底部的距离  |
+| isTabClickIntercept        | boolean                     | tab点击拦截，默认false不拦截 |
+| onDoubleClick              | 回调方法                        | 双击                 |
+| bottomTabType              | BottomTabType               | 设置底部导航模式，默认为普通模式   |
+| bottomTabBorderOptions     | BorderOptions               | 设置底部导航边框样式         |
+| navBarBackgroundColor      | ResourceColor               | 底部导航栏背景颜色          |
+| tabPositionInterceptArray  | Array                       | 按照索引拦截，具体传递对应索引即可  |
 
 
 ### 3、底部导航案例3，中间图片

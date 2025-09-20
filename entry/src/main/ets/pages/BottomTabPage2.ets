@@ -41,7 +41,6 @@ struct BottomTabPage2 {
     }.width("100%")
   }
 
-
   build() {
     Column() {
       ActionBar({ title: "底部导航案例二" })

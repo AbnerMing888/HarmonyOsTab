@@ -51,6 +51,7 @@ struct TabLayoutScrollPage {
               console.log("===点击改变:" + position)
             }
           })
+
           TabLayout({
             tabBar: ["条目一", "条目二", "条目三", "条目四", "条目五", "条目六"],
             itemPage: this.itemPage,
@@ -100,6 +101,7 @@ struct TabLayoutScrollPage {
               console.log("===点击改变:" + position)
             }
           })
+
           //跟随文字的宽度
           TabLayout({
             tabBar: ["一", "第二", "条目三", "是条目四", "我是条目五", "最后是条目六"],
@@ -147,6 +149,7 @@ struct TabLayoutScrollPage {
             tabType: TabType.SCROLL_CENTER,
             tabAttribute: (tab) => {
               tab.tabDividerWidth = 20
+              tab.tabItemWidth = 200
             },
             onChangePage: (position) => {
               //页面改变
@@ -177,7 +180,43 @@ struct TabLayoutScrollPage {
           TabLayout({
             tabBar: ["条目一", "条目二", "条目三", "条目四", "条目五", "条目六", "条目七", "条目八"],
             itemPage: this.itemPage,
-            tabMenu: this.itemMenu, //按钮
+            tabMenu: this.tabRightMenu, //按钮
+            onChangePage: (position) => {
+              //页面改变
+              console.log("===页面改变:" + position)
+            },
+            onTabBarClick: (position) => {
+              //点击改变
+              console.log("===点击改变:" + position)
+            }
+          })
+          //左侧按钮
+          TabLayout({
+            tabBar: ["条目一", "条目二", "条目三", "条目四", "条目五", "条目六", "条目七", "条目八"],
+            itemPage: this.itemPage,
+            tabLeftMenu: this.tabLeftMenu, //按钮
+            tabAttribute: (tab) => {
+              tab.tabDividerWidth = 20
+            },
+            onChangePage: (position) => {
+              //页面改变
+              console.log("===页面改变:" + position)
+            },
+            onTabBarClick: (position) => {
+              //点击改变
+              console.log("===点击改变:" + position)
+            }
+          })
+
+          //左右按钮
+          TabLayout({
+            tabBar: ["条目一", "条目二", "条目三", "条目四", "条目五", "条目六", "条目七", "条目八"],
+            itemPage: this.itemPage,
+            tabAttribute: (tab) => {
+              tab.tabDividerWidth = 20
+            },
+            tabLeftMenu: this.tabLeftMenu, //左侧按钮
+            tabMenu: this.tabRightMenu, //右侧按钮
             onChangePage: (position) => {
               //页面改变
               console.log("===页面改变:" + position)
@@ -198,7 +237,7 @@ struct TabLayoutScrollPage {
     Column() {
       Text(item)
         .fontColor(Color.Black)
-        .fontSize(18)
+        .fontSize(16)
         .fontWeight(FontWeight.Bold)
     }
     .width(100)
@@ -218,10 +257,23 @@ struct TabLayoutScrollPage {
    * INTRODUCE:右侧的按钮，可以是任何的视图
    * */
   @Builder
-  itemMenu() {
-    Text("测试")
+  tabLeftMenu() {
+    Text("左侧")
       .backgroundColor(Color.Red)
-      .width(100)
+      .width(50)
+      .height("100%")
+      .textAlign(TextAlign.Center)
+  }
+
+  /**
+   * AUTHOR:AbnerMing
+   * INTRODUCE:右侧的按钮，可以是任何的视图
+   * */
+  @Builder
+  tabRightMenu() {
+    Text("右侧")
+      .backgroundColor(Color.Red)
+      .width(50)
       .height("100%")
       .textAlign(TextAlign.Center)
   }

@@ -47,7 +47,7 @@ ohpm install @abner/tab
 方式二：在工程的oh-package.json5中设置三方包依赖，配置示例如下：
 
 ```
-"dependencies": { "@abner/tab": "^1.1.0"}
+"dependencies": { "@abner/tab": "^1.1.1"}
 ```
 
 <p align="center"><img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab/tab_243_001.jpg" width="300"></p>

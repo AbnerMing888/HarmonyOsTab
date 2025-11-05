@@ -25,10 +25,11 @@ HarmonyOsTab是一个便捷的tabs组件，封装了底部tab和普通的指示�
 - 5、支持自定义指示器。
 - 6、支持右侧添加按钮。
 - 7、支持指示器图片形式。
+- 8、支持点击和滑动拦截。
 
 ## 开发环境
 
-DevEco Studio NEXT Developer Preview1,Build Version: 5.1.1.823
+DevEco Studio NEXT Developer Preview1,Build Version: 6.0.0.868
 
 Api版本：**>=12**
 
@@ -47,7 +48,7 @@ ohpm install @abner/tab
 方式二：在工程的oh-package.json5中设置三方包依赖，配置示例如下：
 
 ```
-"dependencies": { "@abner/tab": "^1.1.1"}
+"dependencies": { "@abner/tab": "^1.1.2"}
 ```
 
 <p align="center"><img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/tab/tab/tab_243_001.jpg" width="300"></p>
@@ -476,24 +477,25 @@ TabLayout({
 #### 相关属性
 
 
-| 属性                  | 类型                                             | 概述                |
-|---------------------|------------------------------------------------|-------------------|
-| tabWidth            | Length                                         | tab指示器的宽度         |
-| tabHeight           | number                                         | tab指示器的高度         |
-| onChangePage        | 回调方法(position: number)                         | 页面改变回调            |
-| currentIndex        | number                                         | 当前索引，默认第0个        |
-| tabScrollable       | boolean                                        | 是否可以滑动切换页面，默认可以滑动 |
-| tabBar              | Array<string>                                  | 数据源               |
-| itemPage            | 回调方法BuilderParam (index: number, item: string) | tab对应得页面          |
-| tabAttribute        | 回调方法(attribute: TabModel)                      | 设置tab相关属性         |
-| isHideDivider       | boolean                                        | 是否隐藏下划线，默认展示      |
-| isTabAlignLeft      | boolean                                        | 是否从最左边开始，默认不是     |
-| barMode             | BarMode                                        | 是均分还是可滑动，默认滑动     |
-| onTabBarClick       | 回调方法(position: number)                         | tab点击回调           |
-| isShowTabMenu       | boolean                                        | 是否展示右边的按钮选项，默认不展示 |
-| tabMenu             | 回调方法BuilderParam                               | 右边展示的按钮视图         |
-| tabMenuWidth        | number                                         | tab右侧按钮的宽度        |
-| tabMenuMarginRight  | number                                         | tab按钮距离右侧的距离      |
+| 属性                   | 类型                                             | 概述                |
+|----------------------|------------------------------------------------|-------------------|
+| tabWidth             | Length                                         | tab指示器的宽度         |
+| tabHeight            | number                                         | tab指示器的高度         |
+| onChangePage         | 回调方法(position: number)                         | 页面改变回调            |
+| currentIndex         | number                                         | 当前索引，默认第0个        |
+| tabScrollable        | boolean                                        | 是否可以滑动切换页面，默认可以滑动 |
+| tabBar               | Array<string>                                  | 数据源               |
+| itemPage             | 回调方法BuilderParam (index: number, item: string) | tab对应得页面          |
+| tabAttribute         | 回调方法(attribute: TabModel)                      | 设置tab相关属性         |
+| isHideDivider        | boolean                                        | 是否隐藏下划线，默认展示      |
+| isTabAlignLeft       | boolean                                        | 是否从最左边开始，默认不是     |
+| barMode              | BarMode                                        | 是均分还是可滑动，默认滑动     |
+| onTabBarClick        | 回调方法(position: number)                         | tab点击回调           |
+| isShowTabMenu        | boolean                                        | 是否展示右边的按钮选项，默认不展示 |
+| tabMenu              | 回调方法BuilderParam                               | 右边展示的按钮视图         |
+| tabMenuWidth         | number                                         | tab右侧按钮的宽度        |
+| tabMenuMarginRight   | number                                         | tab按钮距离右侧的距离      |
+| isTabClickIntercept  | boolean                                        | 是否拦截点击和滑动         |
 
 
 ### 5、普通指示器导航【不可滑动】

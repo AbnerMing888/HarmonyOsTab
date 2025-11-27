@@ -1,0 +1,17 @@
+{
+  "name": "@abner/tab",
+  "version": "1.1.2",
+  "description": "HarmonyOsTab是一个封装了主页底部tab和平通的指示器tab，优化了系统tab，支持居左展示，支持右侧添加按钮。",
+  "main": "Index.ets",
+  "author": "AbnerMing",
+  "license": "Apache-2.0",
+  "keywords": [
+    "页签",
+    "底部按钮",
+    "tab指示器",
+    "格式化打印"
+  ],
+  "homepage": "https://juejin.cn/user/1398234520239095",
+  "repository": "https://github.com/AbnerMing888/HarmonyOsTab",
+  "dependencies": {}
+}

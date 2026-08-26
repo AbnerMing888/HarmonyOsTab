@@ -6,6 +6,9 @@
   "author": "",
   "license": "",
   "dependencies": {
+    "@abner/router": "^1.0.8",
+    "@abner/bar": "^1.0.6",
+    "@abner/tab": "file:./lib/tab-signed-1.1.8.har"
   },
   "devDependencies": {
     "@ohos/hypium": "1.0.18",

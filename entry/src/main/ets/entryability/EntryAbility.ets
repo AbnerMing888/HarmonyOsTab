@@ -1,7 +1,6 @@
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
-import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
@@ -16,26 +15,9 @@ export default class EntryAbility extends UIAbility {
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
+    windowStage.getMainWindowSync().setWindowLayoutFullScreen(true)
+
     windowStage.loadContent('pages/Index', (err, data) => {
-      let windowClass: window.Window = windowStage.getMainWindowSync(); // 获取应用主窗口
-
-
-      let sysBarProps: window.SystemBarProperties = {
-        statusBarColor: '#ff0000',
-        navigationBarColor: '#ff0000',
-        // 以下两个属性从API Version 8开始支持
-        statusBarContentColor: '#ff0000',
-        navigationBarContentColor: '#ff0000'
-      };
-
-      windowClass.setWindowSystemBarProperties(sysBarProps, (err: BusinessError) => {
-        let errCode: number = err.code;
-        if (errCode) {
-          console.error('Failed to set the system bar properties. Cause: ' + JSON.stringify(err));
-          return;
-        }
-        console.info('Succeeded in setting the system bar properties.');
-      });
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;

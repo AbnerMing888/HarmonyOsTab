@@ -1,13 +1,5 @@
 {
   "src": [
-    "pages/Index",
-    "pages/BottomTabPage1",
-    "pages/BottomTabPage2",
-    "pages/BottomTabPage3",
-    "pages/BottomTabPage4",
-    "pages/BottomTabPage5",
-    "pages/TabLayoutPage",
-    "pages/TabLayoutScrollPage",
-    "pages/SlidePage"
+    "pages/Index"
   ]
 }

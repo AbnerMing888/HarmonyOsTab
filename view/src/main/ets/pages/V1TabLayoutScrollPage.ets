@@ -1,5 +1,6 @@
+import { TitleBar } from '@abner/bar'
+import { RouterPath } from '@abner/router'
 import { BaseTabLayout, TabLayout, TabType } from '@abner/tab'
-import { ActionBar } from './ActionBar'
 
 /**
  * AUTHOR:AbnerMing
@@ -7,9 +8,9 @@ import { ActionBar } from './ActionBar'
  * INTRODUCE:可滑动导航
  * */
 
-@Entry
+@RouterPath("view_tabTabLayoutScrollPage")
 @Component
-struct TabLayoutScrollPage {
+export struct V1TabLayoutScrollPage {
   @Builder
   itemPage(index: number, item: string) {
     Text(item)
@@ -21,7 +22,7 @@ struct TabLayoutScrollPage {
 
   build() {
     Column() {
-      ActionBar({ title: "可滑动导航" })
+      TitleBar({ title: "可滑动导航" })
 
       Scroll() {
         Column() {
@@ -169,10 +170,10 @@ struct TabLayoutScrollPage {
               tabDividerStrokeWidth: 15
             },
             itemTabIndicator: () => {
-              this.tabItemTabIndicator(this) //自己定义指示器
+              this.tabItemTabIndicator() //自己定义指示器
             },
             itemTab: (index: number, item: string) => {
-              this.tabItem(this, index, item)
+              this.tabItem(index, item)
             },
           })
 
@@ -228,12 +229,12 @@ struct TabLayoutScrollPage {
           })
 
         }
-      }.padding({ bottom: 30 })
+      }.padding({ bottom: 100 })
     }
   }
 
   @Builder
-  tabItem(_this: TabLayoutScrollPage, index: number, item: string) {
+  tabItem(index: number, item: string) {
     Column() {
       Text(item)
         .fontColor(Color.Black)
@@ -246,8 +247,8 @@ struct TabLayoutScrollPage {
   }
 
   @Builder
-  tabItemTabIndicator(_this: TabLayoutScrollPage) {
-    Image($r("app.media.icon"))
+  tabItemTabIndicator() {
+    Image($r("app.media.startIcon"))
       .width(15)
       .height(15)
   }

@@ -1,21 +1,21 @@
+import { TitleBar } from '@abner/bar'
+import { RouterPath } from '@abner/router'
 import { BottomTabLayout, BottomTabType, TabBar } from '@abner/tab'
-import { ActionBar } from './ActionBar'
 
 /**
  * AUTHOR:AbnerMing
  * DATE:2024/9/8
- * INTRODUCE:底部圆角导航
+ * INTRODUCE:底部圆角导航，以背景方式滑动
  * */
-
-@Entry
+@RouterPath("view_tabBottomTabPage11")
 @Component
-struct BottomTabPage5 {
+export struct V1BottomTabPage11 {
   tabsController: TabsController = new TabsController()
   @State tabBar: Array<TabBar> = [
-    new TabBar("首页", $r("app.media.ic_home_select"), $r("app.media.ic_home_unselect")),
-    new TabBar("网络", $r("app.media.ic_net_select"), $r("app.media.ic_net_unselect")),
-    new TabBar("列表", $r("app.media.ic_list_select"), $r("app.media.ic_list_unselect")),
-    new TabBar("组件", $r("app.media.ic_view_select"), $r("app.media.ic_view_unselect"))
+    new TabBar("首页", $r("app.media.icon_home_select"), $r("app.media.icon_home_unselect")),
+    new TabBar("分类", $r("app.media.icon_class_select"), $r("app.media.icon_class_unselect")),
+    new TabBar("模版", $r("app.media.icon_view_select"), $r("app.media.icon_view_unselect")),
+    new TabBar("我的", $r("app.media.icon_mine_select"), $r("app.media.icon_mine_unselect"))
   ]
 
   /**
@@ -35,13 +35,13 @@ struct BottomTabPage5 {
 
   build() {
     Column() {
-      ActionBar({ title: "底部导航案例五" })
+      TitleBar({ title: "底部导航案例(圆角形式背景)" })
 
       BottomTabLayout({
         tabsController: this.tabsController,
         itemPage: this.itemPage, //tab对应的页面
-        tabSelectedColor: "#D81E06", //文字选择颜色
-        tabNormalColor: Color.Black, //文字未选择颜色
+        tabSelectedColor: $r("app.color.tab_select_color"), //文字选择颜色
+        tabNormalColor: $r("app.color.tab_normal_color"), //文字未选择颜色
         tabLabelMarginTop: 10, //文字距离图片的高度
         tabScrollable: false, //是否可以滑动
         bottomTabType: BottomTabType.ROUNDED, //底部圆角导航
@@ -49,6 +49,7 @@ struct BottomTabPage5 {
         tabWidth: "90%",
         bottomTabBorderOptions: { radius: 30 },
         barBackgroundColor: Color.White,
+        isSlidBackground: true,//需要背景
         onChangePage: (position) => {
           //页面切换
           console.log("===========页面切换:" + position)
@@ -65,7 +66,7 @@ struct BottomTabPage5 {
           this.tabsController.preloadItems([1, 2])
         },
         tabBar: this.tabBar
-      })
+      }).layoutWeight(1)
     }.height("100%")
 
   }

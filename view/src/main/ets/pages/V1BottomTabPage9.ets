@@ -1,21 +1,22 @@
+import { TitleBar } from '@abner/bar'
+import { RouterPath } from '@abner/router'
 import { BottomTabLayout, TabBar } from '@abner/tab'
-import { ActionBar } from './ActionBar'
 
 /**
  * AUTHOR:AbnerMing
  * DATE:2024/3/5
- * INTRODUCE:底部导航案例一，使用封装的BottomTabLayout，只需要page视图即可
+ * INTRODUCE:底部导航案例，使用封装的BottomTabLayout，只需要page视图即可,+badge
  * */
 
-@Entry
+@RouterPath("view_tabBottomTabPage9")
 @Component
-struct BottomTabPage1 {
+export struct V1BottomTabPage9 {
   tabsController: TabsController = new TabsController()
   @State tabBar: Array<TabBar> = [
-    new TabBar("首页", $r("app.media.ic_home_select"), $r("app.media.ic_home_unselect")),
-    new TabBar("网络", $r("app.media.ic_net_select"), $r("app.media.ic_net_unselect")),
-    new TabBar("列表", $r("app.media.ic_list_select"), $r("app.media.ic_list_unselect")),
-    new TabBar("组件", $r("app.media.ic_view_select"), $r("app.media.ic_view_unselect"))
+    new TabBar("首页", $r("app.media.icon_home_select"), $r("app.media.icon_home_unselect")),
+    new TabBar("分类", $r("app.media.icon_class_select"), $r("app.media.icon_class_unselect")),
+    new TabBar("模版", $r("app.media.icon_view_select"), $r("app.media.icon_view_unselect")),
+    new TabBar("我的", $r("app.media.icon_mine_select"), $r("app.media.icon_mine_unselect"))
   ]
 
   /**
@@ -31,16 +32,18 @@ struct BottomTabPage1 {
 
   build() {
     Column() {
-      ActionBar({ title: "底部导航案例一" })
-
+      TitleBar({ title: "底部导航信息标记", isAvoidanceNavigation: true })
       BottomTabLayout({
         tabsController: this.tabsController,
+        badgeText: "1",
+        badgeShowPosition: [3],
         itemPage: this.itemPage, //tab对应的页面
-        tabSelectedColor: "#D81E06", //文字选择颜色
-        tabNormalColor: Color.Black, //文字未选择颜色
+        tabSelectedColor: $r("app.color.tab_select_color"), //文字选择颜色
+        tabNormalColor: $r("app.color.tab_normal_color"), //文字未选择颜色
         tabLabelMarginTop: 10, //文字距离图片的高度
         tabScrollable: false, //是否可以滑动
-        tabMarginBottom: 40, //距离底部的距离，一般可以获取底部导航栏的高度，然后进行设置
+        barBackgroundColor: Color.White,
+        navBarBackgroundColor: Color.White,
         onChangePage: (position) => {
           //页面切换
           console.log("===========页面切换:" + position)
@@ -54,11 +57,13 @@ struct BottomTabPage1 {
           console.log("===========双击:" + position)
         },
         onTabAppear: () => {
-          this.tabsController.preloadItems([1, 2])
+          this.tabsController.preloadItems([1])
         },
         tabBar: this.tabBar
-      })
+      }).layoutWeight(1)
+
     }.height("100%")
+    .backgroundColor($r("app.color.home_select_color"))
 
   }
 }

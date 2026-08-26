@@ -6,7 +6,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@abner/tab": "file:../tab"
+    "view": "file:../view"
   }
 }
 

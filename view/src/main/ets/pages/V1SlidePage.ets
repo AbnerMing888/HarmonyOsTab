@@ -1,8 +1,9 @@
+import { RouterPath } from '@abner/router'
 import { SlideTab } from '@abner/tab'
 
-@Entry
+@RouterPath("view_tabSlidePage")
 @Component
-struct SlidePage {
+export struct V1SlidePage {
   @Builder
   itemPage(index: number, item: Object) {
     Text(item.toString())

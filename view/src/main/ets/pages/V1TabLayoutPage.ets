@@ -1,5 +1,6 @@
-import { BaseTabLayout, TabLayout, TabType } from '@abner/tab'
-import { ActionBar } from './ActionBar'
+import { TitleBar } from '@abner/bar'
+import { RouterPath } from '@abner/router'
+import { TabLayout, TabType } from '@abner/tab'
 
 /**
  * AUTHOR:AbnerMing
@@ -7,24 +8,25 @@ import { ActionBar } from './ActionBar'
  * INTRODUCE:普通导航
  * */
 
-@Entry
+@RouterPath("view_tabTabLayoutPage")
 @Component
-struct TabLayoutPage {
+export struct V1TabLayoutPage {
   @Builder
   itemPage(_: number, item: string) {
     Text(item)
       .width("100%")
       .height(60)
-      .backgroundColor(Color.Pink)
+      .fontColor(Color.White)
+      .backgroundColor($r("app.color.tab_select_color"))
       .textAlign(TextAlign.Center)
   }
 
   build() {
     Column() {
-      ActionBar({ title: "普通导航" })
+      TitleBar({ title: "普通导航" })
 
       TabLayout({
-        tabBar: ["条目一", "条目二", "条目三", "条目四", "条目五", "条目六"],
+        tabBar: ["条目一", "条目二", "条目三", "条目四", "条目五", "条目六", "条目七", "条目八"],
         itemPage: this.itemPage,
         tabType: TabType.DEFAULT, //普通的需要设置默认值，指示器不会跟着手势滑动
         onChangePage: (position) => {
